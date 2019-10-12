@@ -16,7 +16,7 @@ public class QAssetBundleManager
 
         if (!DicAssetBundle.TryGetValue(assetBundleGroupName, out assetbundle))
         {
-            assetbundle = AssetBundle.LoadFromFile(GetStreamingAssetsPath() + assetBundleGroupName);//+ ".assetbundle"
+            assetbundle = AssetBundle.LoadFromFile(GetApplicationdataPath() + assetBundleGroupName);//+ ".assetbundle"
             DicAssetBundle.Add(assetBundleGroupName, assetbundle);
         }
         object obj = assetbundle.LoadAsset(assetBundleName, typeof(T));
@@ -34,7 +34,7 @@ public class QAssetBundleManager
         }
     }
 
-    public static string GetStreamingAssetsPath()
+    public static string GetApplicationdataPath()
     {
         string StreamingAssetsPath =
 #if UNITY_EDITOR
