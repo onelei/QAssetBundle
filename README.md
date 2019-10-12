@@ -7,7 +7,7 @@ AssetBundle是Unity用来处理资源热更新的，下面简单介绍AssetBundl
 ### 设置AssetBundle名字
 
 #### 手动设置
-![Video_2019-10-11_111045](https://github.com/onelei/SqlManager/blob/master/Images/Video_2019-10-11_111045.gif)
+![Video_2019-10-11_111045](https://github.com/onelei/QAssetBundle/blob/master/Images/Video_2019-10-11_111045.gif)
 
 
 打包之前按照上图所示的方法，设置一下AssetBundle的名字。
@@ -16,7 +16,7 @@ AssetBundle是Unity用来处理资源热更新的，下面简单介绍AssetBundl
 
 将需要进行AssetBundle打包的图片按照“UI_”的前缀命名，然后根据图片的父目录来设置AssetBundle的名字。如下所示
 
-![1570764149485](https://github.com/onelei/SqlManager/blob/master/Images/1570764149485.png)
+![1570764149485](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764149485.png)
 
 然后新建一个ImageImporter.cs文件放入Editor目录下
 
@@ -60,7 +60,7 @@ public class ImageImporter : AssetPostprocessor
 
 接着执行Reimport操作即可自动设置好图片的AssetBundle的名字。
 
-![1570764284894](https://github.com/onelei/SqlManager/blob/master/Images/1570764284894.png)
+![1570764284894](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764284894.png)
 
 ### AssetBundle打包
 
@@ -122,29 +122,29 @@ public class QAssetBundleEditor
 
 然后通过Unity的菜单栏进行AssetBundle打包操作，选择“AssetBundle/BuildWin64”打出一个Windows平台使用的AssetBundle。
 
-![1570764625621](https://github.com/onelei/SqlManager/blob/master/Images/1570764625621.png)
+![1570764625621](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764625621.png)
 
 在Asset同级目录生成了AssetBundles目录
 
-![1570764778660](https://github.com/onelei/SqlManager/blob/master/Images/1570764778660.png)
+![1570764778660](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764778660.png)
 
 文件如下所示，有一个以文件夹名字“AssetBundles”命名的AssetBundle，可以理解为主AssetBundle，下面的uibackground就是将几张图片打出来的AssetBundle包。
 
-![1570764791569](https://github.com/onelei/SqlManager/blob/master/Images/1570764791569.png)
+![1570764791569](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764791569.png)
 
 AssetBundles.manifest文件的“AssetBundleInfos”保存了当前打出的所有AssetBundle的文件名称。
 
-![1570764986125](https://github.com/onelei/SqlManager/blob/master/Images/1570764986125.png)
+![1570764986125](https://github.com/onelei/QAssetBundle/blob/master/Images/1570764986125.png)
 
 uibackground.manifest文件的“Assets”保存了当前打出的AssetBundle里面包含的所有图片名称。
 
-![1570765030595](https://github.com/onelei/SqlManager/blob/master/Images/1570765030595.png)
+![1570765030595](https://github.com/onelei/QAssetBundle/blob/master/Images/1570765030595.png)
 
 ## AssetBundle加载
 
 我们将打出来的所有AssetBundle放入Unity的StreamingAssets目录
 
-![1570765308991](https://github.com/onelei/SqlManager/blob/master/Images/1570765308991.png)
+![1570765308991](https://github.com/onelei/QAssetBundle/blob/master/Images/1570765308991.png)
 
 接下来就可以通过代码加载AssetBundle了。
 
@@ -215,7 +215,7 @@ assetbundle = AssetBundle.LoadFromFile(GetStreamingAssetsPath() + assetBundleGro
 object obj = assetbundle.LoadAsset(assetBundleName, typeof(T));
 ```
 
-![1570765634547](https://github.com/onelei/SqlManager/blob/master/Images/1570765634547.png)
+![1570765634547](https://github.com/onelei/QAssetBundle/blob/master/Images/1570765634547.png)
 
 通过AssetBundle.LoadFromFile加载出AssetBundle，然后根据图片的名字从AssetBundle里面取出即可，接口为
 
@@ -225,7 +225,7 @@ assetbundle.LoadAsset
 
 下面通过一个例子来查看如何使用
 
-![2019-10-11_133847](https://github.com/onelei/SqlManager/blob/master/Images/2019-10-11_133847.png)
+![2019-10-11_133847](https://github.com/onelei/QAssetBundle/blob/master/Images/2019-10-11_133847.png)
 
 我们创建两个按钮，分别用来加载两张图片，按钮的回调函数就是加载出某个AssetBundle（uibackground）下面的某个图片（UI_1002）
 
@@ -267,7 +267,7 @@ public class QAssetBundleSample : MonoBehaviour
 
 运行Unity，结果如下
 
-![Video_2019-10-11_133940](https://github.com/onelei/SqlManager/blob/master/Images/Video_2019-10-11_133940.gif)
+![Video_2019-10-11_133940](https://github.com/onelei/QAssetBundle/blob/master/Images/Video_2019-10-11_133940.gif)
 
 ## AssetBundle卸载
 
@@ -321,17 +321,17 @@ http-server
 
 即可在当前目录开启服务。
 
-![1570880791850](https://github.com/onelei/SqlManager/blob/master/Images/1570880791850.png)
+![1570880791850](https://github.com/onelei/QAssetBundle/blob/master/Images/1570880791850.png)
 
 我们在浏览器中输入http://127.0.0.1:8080/即可访问本地的服务器
 
-![1570880883833](https://github.com/onelei/SqlManager/blob/master/Images/1570880883833.png)
+![1570880883833](https://github.com/onelei/QAssetBundle/blob/master/Images/1570880883833.png)
 
 下面我们开始通过C#代码来下载对应的AssetBundle文件。
 
 ### UnityWebRequest
 
-![1570881005799](https://github.com/onelei/SqlManager/blob/master/Images/1570881005799.png)
+![1570881005799](https://github.com/onelei/QAssetBundle/blob/master/Images/1570881005799.png)
 
 我们在界面中增加一个“WebLoad”按钮，当点击按钮的时候从服务器中下载对应的AssetBundle文件，保存到本地之后按照之前的流程加载即可。这里我们使用Unity自带的UnityWebRequest函数来进行下载操作。
 
@@ -435,7 +435,7 @@ http-server
 
 运行游戏，结果如下所示。
 
-![Video_2019-10-12_195956](https://github.com/onelei/SqlManager/blob/master/Images/Video_2019-10-12_195956.gif)
+![Video_2019-10-12_195956](https://github.com/onelei/QAssetBundle/blob/master/Images/Video_2019-10-12_195956.gif)
 
 ## AssetBundle文件比对
 
@@ -494,5 +494,5 @@ http-server
 
 名字和MD5之间通过“|”分隔即可。
 
-![1570884319925](https://github.com/onelei/SqlManager/blob/master/Images/1570884319925.png)
+![1570884319925](https://github.com/onelei/QAssetBundle/blob/master/Images/1570884319925.png)
 
