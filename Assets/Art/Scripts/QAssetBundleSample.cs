@@ -52,7 +52,7 @@ public class QAssetBundleSample : MonoBehaviour
 
             if (www.isNetworkError)
             {
-                yield return null;
+                yield break;
             }
 
             byte[] datas = www.downloadHandler.data;
@@ -60,7 +60,7 @@ public class QAssetBundleSample : MonoBehaviour
             string localPath = QAssetBundleManager.GetApplicationdataPath() + MainAssetBundleName;
             AssetBundle mainAssetBundle = AssetBundle.LoadFromFile(localPath);
             if (mainAssetBundle == null)
-                yield return null;
+                yield break;
             //获取AssetBundleManifest文件
             AssetBundleManifest manifest = mainAssetBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
 
